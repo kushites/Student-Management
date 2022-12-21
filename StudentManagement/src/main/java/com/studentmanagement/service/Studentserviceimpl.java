@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.studentmanagement.entity.Course;
 import com.studentmanagement.entity.Student;
@@ -12,6 +13,7 @@ import com.studentmanagement.exceptions.CourseNotFound;
 import com.studentmanagement.exceptions.StudentNotFound;
 import com.studentmanagement.respository.Studentdao;
 
+@Component
 public class Studentserviceimpl implements Studentservice{
 
 	@Autowired

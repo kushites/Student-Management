@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.studentmanagement.entity.Course;
 import com.studentmanagement.exceptions.CourseNotFound;
 import com.studentmanagement.respository.Coursedao;
 
+@Component
 public class CourseServiceimpl implements CourseService{
 	
 	@Autowired
