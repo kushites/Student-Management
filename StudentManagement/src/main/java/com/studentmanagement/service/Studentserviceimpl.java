@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.studentmanagement.entity.Course;
 import com.studentmanagement.entity.Student;
+import com.studentmanagement.exceptions.CourseNotFound;
 import com.studentmanagement.exceptions.StudentNotFound;
 import com.studentmanagement.respository.Studentdao;
 
@@ -80,6 +81,43 @@ public class Studentserviceimpl implements Studentservice{
 			throw new StudentNotFound("Student Not found from this course");
 		}
 		return students;
+	}
+
+	@Override
+	public Student updateStudent(Student student) {
+		Optional<Student> opt = studentdao.findById(student.getCode());
+		if(opt.isEmpty()) {
+			throw new StudentNotFound("Student Not Found");
+		}
+		return opt.get();
+	}
+
+	@Override
+	public List<Course> getCourses(String studentname) {
+		List<Student> stulist = studentdao.findAll();
+		List<Course> courselist = new ArrayList<>();
+		for(Student s: stulist) {
+			if(s.getName().equals(studentname)) {
+				courselist=(s.getCourses());
+				break;
+			}
+		}
+		if(courselist==null) {
+			throw new CourseNotFound("No Course Found");
+		}
+		return courselist;
+	}
+
+	@Override
+	public boolean deleteCourseOfStudent(String studentname, String coursename) {
+		Student stu = studentdao.findByName(studentname);
+		for(Course c: stu.getCourses()) {
+			if(c.getName().equals(coursename)) {
+				stu.getCourses().remove(c);
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

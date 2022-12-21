@@ -16,7 +16,13 @@ public interface Studentservice {
 	
 	public Student getStudentbyname(String name);
 	
+	public List<Course> getCourses(String studentname);
+	
 	public boolean deleteStudent(Student student);
+	
+	public boolean deleteCourseOfStudent(String studentname, String coursename);
+	
+	public Student updateStudent(Student student);
 	
 	public Student updateStudentcourse(Student student, Course course);
 	
