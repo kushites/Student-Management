@@ -15,7 +15,7 @@ public interface Studentservice {
 	
 	public boolean deleteStudent(Student student);
 	
-	public Student updateStudentcourse(Course course);
+	public Student updateStudentcourse(Student student, Course course);
 	
 	public List<Student> getallStudentbyCourse(Course course);
 
