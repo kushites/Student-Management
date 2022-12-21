@@ -2,9 +2,12 @@ package com.studentmanagement.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.studentmanagement.entity.Course;
 import com.studentmanagement.entity.Student;
 
+@Service
 public interface Studentservice {
 	
 	public Student saveStudent(Student student);
@@ -17,6 +20,6 @@ public interface Studentservice {
 	
 	public Student updateStudentcourse(Student student, Course course);
 	
-	public List<Student> getallStudentbyCourse(Course course);
+	public List<Student> getallStudentbyCourse(String coursename);
 
 }

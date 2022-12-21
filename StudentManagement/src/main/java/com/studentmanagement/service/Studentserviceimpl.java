@@ -65,13 +65,15 @@ public class Studentserviceimpl implements Studentservice{
 	}
 
 	@Override
-	public List<Student> getallStudentbyCourse(Course course) {
+	public List<Student> getallStudentbyCourse(String coursename) {
 		// TODO Auto-generated method stub
 		List<Student> students = new ArrayList<>();
 		List<Student> allstudent = studentdao.findAll();
 		for(Student s: allstudent) {
-			if(s.getCourses().contains(course)) {
-				students.add(s);
+			for(Course c: s.getCourses()) {
+				if(c.getName().equals(coursename)) {
+					students.add(s);
+				}
 			}
 		}
 		if(students==null) {

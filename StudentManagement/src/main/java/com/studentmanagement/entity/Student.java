@@ -1,6 +1,7 @@
 package com.studentmanagement.entity;
 
-import java.sql.Time;
+
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.hibernate.annotations.ManyToAny;
@@ -13,9 +14,9 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
+
 import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 @Entity
 @Data
@@ -27,8 +28,12 @@ public class Student {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int code;
 	private String name;
-	private Time dob;
+	private LocalDateTime dob;
 	private String gender;
+	private String parentsname;
+	private long mobileno;
+	private String email;
+	
 	
 	@ManyToMany
 	private List<Course> courses;

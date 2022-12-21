@@ -19,5 +19,9 @@ public class GlobalExceptionHandler {
 		MyErrorDetails mrd = new MyErrorDetails(LocalDateTime.now(), snf.getMessage(), wr.getDescription(false));
 		return new ResponseEntity<MyErrorDetails>(mrd, HttpStatus.BAD_REQUEST);
 	}	
-	
+	@ExceptionHandler(CourseNotFound.class)
+	public ResponseEntity<MyErrorDetails> StudentNotFoundException(CourseNotFound cnf, WebRequest wr){
+		MyErrorDetails mrd = new MyErrorDetails(LocalDateTime.now(), cnf.getMessage(), wr.getDescription(false));
+		return new ResponseEntity<MyErrorDetails>(mrd, HttpStatus.BAD_REQUEST);
+	}	
 }
