@@ -60,5 +60,5 @@ public class AdminController {
 		return new ResponseEntity<Student>(stu, HttpStatus.OK);
 	}
 	
-	@
+	
 }
